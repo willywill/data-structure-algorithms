@@ -1,0 +1,28 @@
+{
+  "name": "data-structure-algorithms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --runInBand"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willywill/data-structure-algorithms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/willywill/data-structure-algorithms/issues"
+  },
+  "homepage": "https://github.com/willywill/data-structure-algorithms#readme",
+  "dependencies": {
+    "jest": "^22.4.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "nodemon": "^1.17.1"
+  }
+}
