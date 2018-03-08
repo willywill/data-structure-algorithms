@@ -34,7 +34,7 @@ export default class LinkedList {
                 currentNode = currentNode.next;
             }
             //Once we reach the end, add this node to our last node.
-            currentNode = node;
+            currentNode.next = node;
             this.length++;
             return currentNode;
         }
