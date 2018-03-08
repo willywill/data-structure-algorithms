@@ -69,8 +69,29 @@ export default class LinkedList {
 
     }
 
+    /**
+     * Retrieves the data on the node at the provided index.
+     * 
+     * @param {any} index 
+     * @returns 
+     * @memberof LinkedList
+     */
     getNode (index) {
+        // Check for edge cases.
+        if (index < 0 || index > this.length || this.size() === 0) {
+            const error = new Error("OutOfRangeException");
+            throw new Error(`${error}: ${error.stack}`);
+        }
 
+        let currentNode = this.head;
+
+        // Iterate through each node starting with the head until we get to our node.
+        while (currentNode.next && count < index) {
+            currentNode = currentNode.next;
+            count++;
+        }
+
+        return currentNode.data;
     }
 
     /**
