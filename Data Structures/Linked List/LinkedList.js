@@ -65,6 +65,12 @@ export default class LinkedList {
         }
     }
 
+    /**
+     * Removes the node at the provided index.
+     * 
+     * @param {any} index 
+     * @memberof LinkedList
+     */
     removeNode (index) {
 
     }
@@ -130,14 +136,26 @@ export default class LinkedList {
         }
     }
 
+    /**
+     * Returns the size of the linked list.
+     * 
+     * @returns 
+     * @memberof LinkedList
+     */
     size () {
         // Get the length of the linked list and return it.
         return this.length;
     }
 
+    /**
+     * Checks if the linked list is empty or not.
+     * 
+     * @returns 
+     * @memberof LinkedList
+     */
     isEmpty () {
         // If the length of the linked list is zero, it's empty. Otherwise, it's not.
-        if (this.length === 0) {
+        if (this.size() === 0) {
             return true;
         } else {
             return false;
