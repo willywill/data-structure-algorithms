@@ -78,12 +78,13 @@ export default class LinkedList {
      */
     getNode (index) {
         // Check for edge cases.
-        if (index < 0 || index > this.length || this.size() === 0) {
+        if (index < 0 || index > this.length || this.isEmpty()) {
             const error = new Error("OutOfRangeException");
             throw new Error(`${error}: ${error.stack}`);
         }
 
         let currentNode = this.head;
+        let count = 0;
 
         // Iterate through each node starting with the head until we get to our node.
         while (currentNode.next && count < index) {
@@ -114,7 +115,7 @@ export default class LinkedList {
                 return count;
             } else {
                 // Otherwise, iterate through each node and check if our value exists.
-                while (currentNode.next && count <= this.length) {
+                while (currentNode.next || count <= this.length) {
                     if (currentNode.data === value) {
                         isFound = true;
                         break;
