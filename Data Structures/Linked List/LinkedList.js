@@ -78,6 +78,34 @@ export default class LinkedList {
             throw new Error(error.stack);
         }
 
+        let count = 0;
+        let currentNode = this.head;
+
+        // Keep track of the tail so we can adjust it's pointer if the removal is done in the center of two nodes.
+        let previousNode = null;
+
+        // If we remove the head, set the new head to the next node in the chain.
+        if (index === 0) {
+            this.head = currentNode.next;
+            this.length++;
+            return currentNode;
+        } else {
+            // Iterate through each node, keeping track of the previous node.
+            while (currentNode.next && count < index) {
+                currentNode = currentNode.next;
+                previousNode = currentNode;
+                count++;
+            }
+
+            // The previous node is now linked with the node after the next, as we removed the center.
+            previousNode.next = currentNode.next;
+            // Return the node we will remove, acts like a pop method.
+            const tempNode = currentNode;
+            currentNode = null;
+            this.length--;
+            return tempNode;
+        }
+
     }
 
     /**
