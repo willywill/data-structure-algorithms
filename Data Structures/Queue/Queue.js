@@ -7,7 +7,7 @@ export default class Queue {
      * Pushes data onto the queue.
      * 
      * @param {any} data 
-     * @memberof Stack
+     * @memberof Queue
      */
     enqueue (data) {
         this.collection.push(data);
@@ -17,7 +17,7 @@ export default class Queue {
      * Removes data out of the queue and returns it.
      * 
      * @returns 
-     * @memberof Stack
+     * @memberof Queue
      */
     dequeue () {
         if (this.isEmpty()) {
@@ -45,7 +45,7 @@ export default class Queue {
      * Gets the size of the queue.
      * 
      * @returns 
-     * @memberof Stack
+     * @memberof Queue
      */
     size () {
         return this.collection.length;
@@ -55,7 +55,7 @@ export default class Queue {
      * Checks if the queue is empty.
      * 
      * @returns 
-     * @memberof Stack
+     * @memberof Queue
      */
     isEmpty () {
         return this.collection.length === 0 ? true : false;
