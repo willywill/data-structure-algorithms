@@ -37,7 +37,7 @@ export default class Stack {
         if (this.isEmpty()) {
             return null;
         } else {
-            return this.collection[this.length - 1];
+            return this.collection[this.collection.length - 1];
         }
     }
 
