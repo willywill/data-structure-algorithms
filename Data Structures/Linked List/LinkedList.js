@@ -89,7 +89,7 @@ export default class LinkedList {
         if (index === 0) {
             this.head = currentNode.next;
             deletedNode = currentNode;
-            this.length++;
+            this.length--;
             return deletedNode;
         } else {
             // Iterate through each node, keeping track of the previous node.
