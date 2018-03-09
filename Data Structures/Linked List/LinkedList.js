@@ -72,6 +72,11 @@ export default class LinkedList {
      * @memberof LinkedList
      */
     removeNode (index) {
+        // Check for edge cases.
+        if (index < 0 || index > this.length || this.isEmpty()) {
+            const error = new Error("OutOfRangeException");
+            throw new Error(error.stack);
+        }
 
     }
 
@@ -86,7 +91,7 @@ export default class LinkedList {
         // Check for edge cases.
         if (index < 0 || index > this.length || this.isEmpty()) {
             const error = new Error("OutOfRangeException");
-            throw new Error(`${error}: ${error.stack}`);
+            throw new Error(error.stack);
         }
 
         let currentNode = this.head;
