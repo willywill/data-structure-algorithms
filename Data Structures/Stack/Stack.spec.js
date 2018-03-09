@@ -1,7 +1,8 @@
 import Stack from './Stack'
 
-describe('Stack Data Structure', () => {
-    it('Can import and use Stack', () => {
+describe('Stack', () => {
+    
+    it ('Can import and use Stack', () => {
         const stack = new Stack();
         expect(typeof stack).toBeDefined();
     });
