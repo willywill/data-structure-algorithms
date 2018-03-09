@@ -1,8 +1,8 @@
 import Queue from './Queue'
 
 describe('Queue', () => {
-    
-    it ('Can import and use Queue', () => {
+
+    it ('Can be imported and used', () => {
         const queue = new Queue();
         expect(typeof queue).toBeDefined();
     });

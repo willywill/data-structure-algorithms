@@ -1,8 +1,8 @@
 import Stack from './Stack'
 
 describe('Stack', () => {
-    
-    it ('Can import and use Stack', () => {
+
+    it ('Can be imported and used', () => {
         const stack = new Stack();
         expect(typeof stack).toBeDefined();
     });
