@@ -19,7 +19,7 @@ export default class LinkedList {
      * @memberof LinkedList
      */
     appendNode (data) {
-        // Create a nee node and fill it with our data.
+        // Create a new node and fill it with our data.
         const node = new Node(data);
         let currentNode = this.head;
 
