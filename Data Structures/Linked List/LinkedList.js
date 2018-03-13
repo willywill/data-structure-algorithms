@@ -162,6 +162,7 @@ export default class LinkedList {
                         break;
                     } else {
                         currentNode = currentNode.next;
+                        if (currentNode === null) { break; }
                         count++;
                     }
                 }

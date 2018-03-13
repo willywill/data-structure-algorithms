@@ -23,6 +23,16 @@ describe('Doubly Linked List', () => {
         expect(result).toBe(0);
     });
 
+    it ('Remove Method', () => {
+        const linkedList = new DoublyLinkedList();
+        linkedList.appendNode(4);
+        linkedList.appendNode(2);
+        linkedList.prependNode(5);
+        linkedList.removeNode(1);
+        const result = linkedList.head.next.data;
+        expect(result).toBe(2);
+    });
+
     it ('GetNode Method', () => {
         const linkedList = new DoublyLinkedList();
         linkedList.appendNode("Hi");
