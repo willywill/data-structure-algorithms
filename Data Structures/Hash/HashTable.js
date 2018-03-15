@@ -62,7 +62,7 @@ export default class HashTable {
         if (!key) {
             const error = new Error("IllegalArgumentException");
             throw new Error(error.stack); 
-        };
+        }
 
        const index = this.hash(key);
        const bucket = new Bucket(key, value);
