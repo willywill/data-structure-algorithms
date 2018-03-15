@@ -93,7 +93,7 @@ export default class HashTable {
      */
     get (key) {
         // Check edge cases.
-        if (this.size === 0 || this.storage[].length === 0) {
+        if (this.size === 0 || this.storage.length === 0) {
             const error = new Error("NoSuchElementException");
             throw new Error(error.stack);
         }
@@ -122,7 +122,7 @@ export default class HashTable {
      */
     contains (key) {
         // Check edge cases.
-        if (this.size === 0 || this.storage[].length === 0) {
+        if (this.size === 0 || this.storage.length === 0) {
             const error = new Error("NoSuchElementException");
             throw new Error(error.stack);
         }
@@ -206,7 +206,7 @@ export default class HashTable {
      */
     remove (key) {
         // Check edge cases.
-        if (this.size === 0 || this.storage[].length === 0) {
+        if (this.size === 0 || this.storage.length === 0) {
             const error = new Error("NoSuchElementException");
             throw new Error(error.stack);
         } else if (!key) {
@@ -214,7 +214,7 @@ export default class HashTable {
             throw new Error(error.stack); 
         }
 
-        
+
     }
 
     /**
