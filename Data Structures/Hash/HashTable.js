@@ -58,6 +58,12 @@ export default class HashTable {
      * @memberof HashTable
      */
     put (key, value) {
+        // Check edge cases.
+        if (!key) {
+            const error = new Error("IllegalArgumentException");
+            throw new Error(error.stack); 
+        };
+
        const index = this.hash(key);
        const bucket = new Bucket(key, value);
        // If the index is empty, it's clear to place the bucket in this index without chaining.
@@ -86,6 +92,12 @@ export default class HashTable {
      * @memberof HashTable
      */
     get (key) {
+        // Check edge cases.
+        if (this.size === 0 || this.storage[].length === 0) {
+            const error = new Error("NoSuchElementException");
+            throw new Error(error.stack);
+        }
+
         const index = this.hash(key);
         // If this index contains only the linked list with the head, return the bucket on the head.
         if (this.storage[index] && this.storage[index].head.next === null
@@ -110,6 +122,12 @@ export default class HashTable {
      * @memberof HashTable
      */
     contains (key) {
+        // Check edge cases.
+        if (this.size === 0 || this.storage[].length === 0) {
+            const error = new Error("NoSuchElementException");
+            throw new Error(error.stack);
+        }
+
         let isFound = false;
         // Some method allows for early out. Loop through the storage,
         // then traverse each linked list until we find the key.
@@ -131,6 +149,8 @@ export default class HashTable {
      */
     keys () {
         const keys = [];
+        // Similar to increasing the table size, we retreive the keys in the buckets,
+        // by iterating through every bucket and extracting the data.
         this.storage.map(buckets => {
             if (!buckets) { return; }
                if (buckets.head.next && buckets.length > 1) {
@@ -158,6 +178,8 @@ export default class HashTable {
      */
     values () {
         const values = [];
+        // Similar to increasing the table size, we retreive the values in the buckets,
+        // by iterating through every bucket and extracting the data.
         this.storage.map(buckets => {
             if (!buckets) { return; }
                if (buckets.head.next && buckets.length > 1) {
