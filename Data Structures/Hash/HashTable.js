@@ -94,10 +94,7 @@ export default class HashTable {
         // If this linked list has multiple nodes, traverse them and get the bucket.
         } else if (this.storage[index] && this.storage[index].length > 1) {
             const nodeIdx = this.storage[index].contains(key);
-
-            if(nodeIdx === -1) {
-                return null;
-            }
+            if(nodeIdx === -1) return null; 
 
             return this.storage[index].getNode(nodeIdx).value;
         } else {
@@ -126,12 +123,58 @@ export default class HashTable {
         return isFound;
     }
 
+    /**
+     * Gets all the keys in the hash table.
+     * 
+     * @returns {any[]}
+     * @memberof HashTable
+     */
     keys () {
+        const keys = [];
+        this.storage.map(buckets => {
+            if (!buckets) { return; }
+               if (buckets.head.next && buckets.length > 1) {
+                 let count = 0;
+                 while(count < buckets.length) {
+                   const key = buckets.head.data.key;
+                   keys.push(key);
+                   buckets.head = buckets.head.next;
+                   count++;
+                 }
+               } else {
+                 const key = buckets.head.data.key;
+                 keys.push(key);
+               }
+        });
 
+        return keys;
     }
 
+    /**
+     * Gets all the values in the hash table.
+     * 
+     * @returns {any[]}
+     * @memberof HashTable
+     */
     values () {
+        const values = [];
+        this.storage.map(buckets => {
+            if (!buckets) { return; }
+               if (buckets.head.next && buckets.length > 1) {
+                 let count = 0;
+                 while(count < buckets.length) {
+                   const value = buckets.head.data.value;
+                   values.push(value);
+                   buckets.head = buckets.head.next;
+                   count++;
+                 }
+               } else {
+                 const value = buckets.head.data.value;
+                 values.push(value);
+               }
+        });
 
+        return values;
     }
 
     remove (key) {
