@@ -143,7 +143,7 @@ export default class LinkedList {
      * @returns 
      * @memberof LinkedList
      */
-    contains (value) {
+    contains (key) {
         if (this.isEmpty()) {
             return -1;
         } else {
@@ -151,13 +151,18 @@ export default class LinkedList {
             let count = 0;
             let isFound = false;
 
-            // Check if the head contains the value we want first.
-            if (this.head.data === value) {
+            // Check if the head is null, otherwise don't continue, exit with -1.
+            if (this.head === null) {
+                return -1;
+            }
+
+            // Check if the head contains the key we want first.
+            if (this.head.data === key) {
                 return count;
             } else {
-                // Otherwise, iterate through each node and check if our value exists.
+                // Otherwise, iterate through each node and check if our key exists.
                 while (currentNode.next || count <= this.length) {
-                    if (currentNode.data === value) {
+                    if (currentNode.data === key || currentNode.data.key === key) {
                         isFound = true;
                         break;
                     } else {

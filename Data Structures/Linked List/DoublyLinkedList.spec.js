@@ -2,9 +2,9 @@ import DoublyLinkedList from './DoublyLinkedList';
 
 describe('Doubly Linked List', () => {
 
-    it('Can be imported and used', () => {
+    it ('Can be imported and used', () => {
         const linkedList = new DoublyLinkedList();
-        expect(typeof linkedList).toBeDefined();
+        expect(linkedList).toBeDefined();
     });
 
     it ('Prepend Method', () => {

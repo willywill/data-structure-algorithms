@@ -4,7 +4,7 @@ describe('Linked List', () => {
 
     it ('Can be imported and used', () => {
         const linkedList = new LinkedList();
-        expect(typeof linkedList).toBeDefined();
+        expect(linkedList).toBeDefined();
     });
 
     it ('Append Method', () => {

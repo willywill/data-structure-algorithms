@@ -57,3 +57,5 @@ typings/
 # dotenv environment variables file
 .env
 
+# Sandbox File for Testing Quickly
+sandbox.js
