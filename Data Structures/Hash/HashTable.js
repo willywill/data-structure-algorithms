@@ -107,7 +107,6 @@ export default class HashTable {
         } else if (this.storage[index] && this.storage[index].length > 1) {
             const nodeIdx = this.storage[index].contains(key);
             if(nodeIdx === -1) return null; 
-
             return this.storage[index].getNode(nodeIdx).value;
         } else {
             return null;
@@ -199,8 +198,23 @@ export default class HashTable {
         return values;
     }
 
+    /**
+     * Removes a key-value pair from the hash table.
+     * 
+     * @param {any} key 
+     * @memberof HashTable
+     */
     remove (key) {
+        // Check edge cases.
+        if (this.size === 0 || this.storage[].length === 0) {
+            const error = new Error("NoSuchElementException");
+            throw new Error(error.stack);
+        } else if (!key) {
+            const error = new Error("IllegalArgumentException");
+            throw new Error(error.stack); 
+        }
 
+        
     }
 
     /**
