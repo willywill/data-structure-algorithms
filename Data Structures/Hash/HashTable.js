@@ -223,9 +223,20 @@ export default class HashTable {
         const index = this.hash(key);
         const list = this.storage[index];
         let removedBucket = null;
-        const nodeIdx = list.contains(key);
-        if(nodeIdx === -1) return null;
-        removedBucket = list.removeNode(nodeIdx).data;     
+
+        // If this index contains only the linked list with the head, remove the value on the head.
+        if (list && list.head.next === null && list.head.data.key === key) {
+           removedBucket = list.head.data;
+           list.removeNode(0);
+       // If this linked list has multiple nodes, traverse them and remove the bucket with our value.
+       } else if (list && list.length > 1) {
+           const nodeIdx = list.contains(key);
+           if(nodeIdx === -1) return null; 
+           removedBucket = list.removeNode(nodeIdx).data;
+       } else {
+           return null;
+       }
+
         this.size--;  
         return removedBucket;
     }
