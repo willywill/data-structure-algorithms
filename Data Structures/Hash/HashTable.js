@@ -228,14 +228,14 @@ export default class HashTable {
         if (list && list.head.next === null && list.head.data.key === key) {
            removedBucket = list.head.data;
            list.removeNode(0);
-       // If this linked list has multiple nodes, traverse them and remove the bucket with our value.
-       } else if (list && list.length > 1) {
-           const nodeIdx = list.contains(key);
-           if(nodeIdx === -1) return null; 
-           removedBucket = list.removeNode(nodeIdx).data;
-       } else {
-           return null;
-       }
+        // If this linked list has multiple nodes, traverse them and remove the bucket with our value.
+        } else if (list && list.length > 1) {
+            const nodeIdx = list.contains(key);
+            if(nodeIdx === -1) return null; 
+            removedBucket = list.removeNode(nodeIdx).data;
+        } else {
+            return null;
+        }
 
         this.size--;  
         return removedBucket;
