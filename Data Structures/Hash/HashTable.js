@@ -60,8 +60,7 @@ export default class HashTable {
     put (key, value) {
         // Check edge cases.
         if (!key) {
-            const error = new Error("IllegalArgumentException");
-            throw new Error(error.stack); 
+            throw new Error("IllegalArgumentException"); 
         }
 
        const index = this.hash(key);
@@ -93,21 +92,25 @@ export default class HashTable {
      */
     get (key) {
         // Check edge cases.
-        if (this.size === 0 || this.storage.length === 0) {
-            const error = new Error("NoSuchElementException");
-            throw new Error(error.stack);
+        if ((this.size === 0 || this.storage.length === 0) && key) {
+            return null;
+        }
+        
+        if (!key) {
+            throw new Error("IllegalArgumentException"); 
         }
 
         const index = this.hash(key);
-        // If this index contains only the linked list with the head, return the bucket on the head.
-        if (this.storage[index] && this.storage[index].head.next === null
-             && this.storage[index].head.data.key === key) {
-            return this.storage[index].head.data.value;
-        // If this linked list has multiple nodes, traverse them and get the bucket.
-        } else if (this.storage[index] && this.storage[index].length > 1) {
-            const nodeIdx = this.storage[index].contains(key);
+        const list = this.storage[index];
+        // If this index contains only the linked list with the head, return the value on the head.
+        if (list && list.head.next === null
+             && list.head.data.key === key) {
+            return list.head.data.value;
+        // If this linked list has multiple nodes, traverse them and get the bucket with our value.
+        } else if (list && list.length > 1) {
+            const nodeIdx = list.contains(key);
             if(nodeIdx === -1) return null; 
-            return this.storage[index].getNode(nodeIdx).value;
+            return list.getNode(nodeIdx).value;
         } else {
             return null;
         }
@@ -122,9 +125,12 @@ export default class HashTable {
      */
     contains (key) {
         // Check edge cases.
-        if (this.size === 0 || this.storage.length === 0) {
-            const error = new Error("NoSuchElementException");
-            throw new Error(error.stack);
+        if ((this.size === 0 || this.storage.length === 0) && key) {
+            return null;
+        }
+        
+        if (!key) {
+            throw new Error("IllegalArgumentException"); 
         }
 
         let isFound = false;
@@ -206,15 +212,22 @@ export default class HashTable {
      */
     remove (key) {
         // Check edge cases.
-        if (this.size === 0 || this.storage.length === 0) {
-            const error = new Error("NoSuchElementException");
-            throw new Error(error.stack);
-        } else if (!key) {
-            const error = new Error("IllegalArgumentException");
-            throw new Error(error.stack); 
+        if ((this.size === 0 || this.storage.length === 0) && key) {
+            return null;
+        }
+        
+        if (!key) {
+            throw new Error("IllegalArgumentException"); 
         }
 
-
+        const index = this.hash(key);
+        const list = this.storage[index];
+        let removedBucket = null;
+        const nodeIdx = list.contains(key);
+        if(nodeIdx === -1) return null;
+        removedBucket = list.removeNode(nodeIdx).data;     
+        this.size--;  
+        return removedBucket;
     }
 
     /**

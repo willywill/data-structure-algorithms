@@ -51,4 +51,28 @@ describe('Hash Table', () => {
         expect(finalSize).toBeGreaterThan(initialSize);
     });
 
+    it ('Remove Method', () => {
+
+    });
+
+    it ('Keys Method', () => {
+
+    });
+
+    it ('Values Method', () => {
+
+    });
+
+    it ('Size Method', () => {
+
+    });
+
+    it ('Clear Method', () => {
+
+    });
+
+    it ('isEmpty Method', () => {
+
+    });
+
 });

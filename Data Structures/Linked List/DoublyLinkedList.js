@@ -78,8 +78,7 @@ export default class DoublyLinkedList {
     removeNode (index) {
         // Check for edge cases.
         if (index < 0 || index > this.length || this.isEmpty()) {
-            const error = new Error("OutOfRangeException");
-            throw new Error(error.stack);
+            throw new Error("OutOfRangeException");
         }
 
         let count = 0;
@@ -122,8 +121,7 @@ export default class DoublyLinkedList {
     getNode (index) {
         // Check for edge cases.
         if (index < 0 || index > this.length || this.isEmpty()) {
-            const error = new Error("OutOfRangeException");
-            throw new Error(error.stack);
+            throw new Error("OutOfRangeException");
         }
 
         let currentNode = this.head;
