@@ -33,6 +33,10 @@ export default class HashSet {
         return Object.keys(this.storage);
     }
 
+    unionWith () {
+        
+    }
+
     size () {
         return Object.keys(this.storage).length;
     }
