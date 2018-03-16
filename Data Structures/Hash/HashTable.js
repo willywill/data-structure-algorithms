@@ -247,8 +247,21 @@ export default class HashTable {
      * @returns {number}
      * @memberof HashTable
      */
-    size () {
+    getSize () {
         return this.size;
+    }
+
+    /**
+     * Removes all entries in the hash table.
+     * 
+     * @memberof HashTable
+     */
+    clear () {
+        this.storage = [];
+        this.size = 0;
+        // Consider exposing default table size after prime refactor is implemented.
+        this.tableSize = 4;
+        return this;
     }
 
     /**
@@ -258,7 +271,7 @@ export default class HashTable {
      * @memberof HashTable
      */
     isEmpty () {
-        this.size === 0 ? true : false;
+        return this.size === 0 ? true : false;
     }
 
 }

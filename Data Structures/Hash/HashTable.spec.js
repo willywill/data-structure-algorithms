@@ -52,27 +52,57 @@ describe('Hash Table', () => {
     });
 
     it ('Remove Method', () => {
-
+        const hashTable = new HashTable();
+        hashTable.put("Bob", 34);
+        hashTable.remove("Bob");
+        const result = hashTable.getSize();
+        expect(result).toBe(0);
     });
 
     it ('Keys Method', () => {
-
+        const hashTable = new HashTable();
+        hashTable.put("Bob", 24);
+        hashTable.put("Jon", 44);
+        hashTable.put("Joe", 31);
+        hashTable.put("Karen", 34);
+        const actualResult = hashTable.keys();
+        const expectedResult = ["Bob", "Jon", "Joe", "Karen"];
+        const result = actualResult.sort();
+        expect(result).toEqual(expectedResult.sort());
     });
 
     it ('Values Method', () => {
-
+        const hashTable = new HashTable();
+        hashTable.put("Bob", 24);
+        hashTable.put("Jon", 44);
+        hashTable.put("Joe", 31);
+        hashTable.put("Karen", 34);
+        const actualResult = hashTable.values();
+        const expectedResult = [24, 44, 31, 34];
+        const result = actualResult.sort();
+        expect(result).toEqual(expectedResult.sort());
     });
 
     it ('Size Method', () => {
-
+        const hashTable = new HashTable();
+        hashTable.put("Bob", 34);
+        const result = hashTable.getSize();
+        expect(result).toBe(1);
     });
 
     it ('Clear Method', () => {
-
+        const hashTable = new HashTable();
+        hashTable.put("Bob", 34);
+        hashTable.clear();
+        const result = hashTable.getSize();
+        expect(result).toBe(0);
     });
 
     it ('isEmpty Method', () => {
-
+        const hashTable = new HashTable();
+        hashTable.put("Bob", 34);
+        const result = hashTable.isEmpty();
+        expect(result).toBe(false);
     });
 
 });
