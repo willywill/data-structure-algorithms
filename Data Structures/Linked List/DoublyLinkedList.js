@@ -73,7 +73,7 @@ export default class DoublyLinkedList {
      * Removes the node at the provided index.
      * 
      * @param {any} index 
-     * @memberof LinkedList
+     * @memberof DoublyLinkedList
      */
     removeNode (index) {
         // Check for edge cases.

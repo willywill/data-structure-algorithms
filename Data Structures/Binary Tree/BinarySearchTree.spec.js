@@ -1,4 +1,4 @@
-describe('Binary Tree', () => {
+describe('', () => {
 
     it ('', () => {
 
