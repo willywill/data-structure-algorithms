@@ -1,7 +1,10 @@
-describe('', () => {
+import BinaryHeap from './BinaryHeap';
 
-    it ('', () => {
+describe('Binary Heap', () => {
 
+    it ('Can be imported and used', () => {
+        const heap = new BinaryHeap();
+        expect(heap).toBeDefined();
     });
 
 });
