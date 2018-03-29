@@ -5,7 +5,6 @@
 Practicing data structures and algorithms.
 
 TODO Data Structures:
-  - CircularDoublyLinkedList
   - Min/Max Heap
   - Priority Queue
   - Binary Tree
