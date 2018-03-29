@@ -101,7 +101,7 @@ export default class BinaryHeap {
      */
     insert (key, value) {
         // Get the next index in the array so we can add our node there then heapify.
-        const leafNodeIdx = this.list.length;
+        let leafNodeIdx = this.list.length;
         const node = new Node(key, value);
         this.list.push(node);
 
