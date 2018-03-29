@@ -1,3 +1,6 @@
+// Implementation of http://www.growingwiththeweb.com/data-structures/binary-heap/overview/
+// Will need to review some concepts more.
+
 // Private methods
 const maxHeapCompare = (a, b) => a.key > b.key ? -1 : a.key < b.key ? 1 : 0;
 const minHeapCompare = (a, b) => a.key > b.key ? 1 : a.key < b.key ? -1 : 0;
@@ -63,28 +66,155 @@ export default class BinaryHeap {
         }
     }
 
-    buildHeap () {
+    /**
+     * 
+     * 
+     * @param {any} keys 
+     * @param {any} values 
+     * @memberof BinaryHeap
+     */
+    buildHeap (keys, values) {
 
     }
 
-    insert (data) {
-        
+    /**
+     * Internal function for processing heaps.
+     * 
+     * @param {any} heap 
+     * @param {any} newHeap 
+     * @memberof BinaryHeap
+     */
+    _buildHeap (heap, newHeap) {
+        heap.list = newHeap;
+        const halfHeapSize = Math.floor(heap.list.length / 2);
+        for (let i = halfHeapSize; i >= 0; i--) {
+            this.heapify(heap, i);
+        }
     }
 
-    remove () {
+    /**
+     * Inserts a new node into the heap.
+     * 
+     * @param {any} key 
+     * @param {any} value 
+     * @memberof BinaryHeap
+     */
+    insert (key, value) {
+        // Get the next index in the array so we can add our node there then heapify.
+        const leafNodeIdx = this.list.length;
+        const node = new Node(key, value);
+        this.list.push(node);
 
+        // Get the parent of this new node.
+        let parent = getParent(leafNodeIdx);
+
+        // Keep switching the inserted node with the parent as long as we have a happy path available.
+        while (parent !== null && this.compareTo(this.list[leafNodeIdx], this.list[parent]) < 0) {
+            swap(this.list, leafNodeIdx, parent);
+            leafNodeIdx = parent;
+            parent = getParent(leafNodeIdx);
+        }
+
+        return node;
+    }
+
+
+    decreaseKey () {
+
+    }
+
+    increaseKey () {
+
+    }
+
+    /**
+     * Internal function for extracting min/max root node.
+     * 
+     * @returns 
+     * @memberof BinaryHeap
+     */
+    _extractExtrema () {
+        if (!this.list.length) {
+            return null;
+        } else {
+            if (this.list.length === 1) {
+                return this.list.shift();
+            }
+
+            // See this video for explaination as to why we set the last element to the top and bubble down
+            // https://www.youtube.com/watch?v=t0Cq6tVNRBA
+            const extrema = this.list[0];
+            this.list[0] = this.list.pop();
+            this.heapify(this, 0);
+            return extrema;
+        }
     }
     
+    /**
+     * Removes and returns the minimum.
+     * 
+     * @returns 
+     * @memberof BinaryHeap
+     */
     extractMin () {
-
+        if(useMaxHeap) {
+            return null;
+        } else {
+            return this._extractExtrema();
+        }
     }
 
+    /**
+     * Removes and returns the maximum.
+     * 
+     * @returns 
+     * @memberof BinaryHeap
+     */
     extractMax () {
-
+        if (useMaxHeap) {
+            return this._extractExtrema();
+        } else {
+            return null;
+        }
     }
 
-    unionWith () {
+    /**
+     * Gets the root or min node.
+     * 
+     * @returns 
+     * @memberof BinaryHeap
+     */
+    getMin () {
+        if(useMaxHeap) {
+            return null;
+        } else {
+            return this.isEmpty() ? null : this.list[0];
+        }
+    }
 
+    /**
+     * Gets the root or max node.
+     * 
+     * @returns 
+     * @memberof BinaryHeap
+     */
+    getMax () {
+        if (useMaxHeap) {
+            return this.isEmpty() ? null : this.list[0];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * Joins the current heap with another and heapifies the result.
+     * 
+     * @param {any} heap 
+     * @memberof BinaryHeap
+     */
+    unionWith (heap) {
+        const newHeap = this.list.concat(heap.list);
+        this._buildHeap(this, newHeap);
     }
 
     /**
