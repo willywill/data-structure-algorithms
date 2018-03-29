@@ -29,16 +29,18 @@ export default class CircularDoublyLinkedList {
         // If the head is null set the head to this newly created data.
         if (!this.head) {
             this.head = node;
+            this.tail = node;
+            node.prev = node;
+            node.next = node;
             this.length++;
             return node;
         } else {
-            // Otherwise, keep going until we get to the end of the linked list.
-            while (currentNode.next) {
-                currentNode = currentNode.next;
-            }
-            //Once we reach the end, add this node to our last node.
-            currentNode.next = node;
-            node.prev = currentNode;
+            // Otherwise, attach the node to the tail and set the pointers.
+            node.prev = this.tail;
+            node.next = this.head;
+            this.head.prev = node;
+            this.tail.next = node;
+            this.tail = node;
             this.length++;
             return node;
         }
@@ -58,12 +60,17 @@ export default class CircularDoublyLinkedList {
         // If the head is null, set the head to this new node.
         if (!this.head) {
             this.head = node;
+            this.tail = node;
+            node.prev = node;
+            node.next = node;
             this.length++;
             return node;
         } else {
             // Otherwise, set the pointers for this new node and make it the new head.
             this.head.prev = node;
             node.next = this.head;
+            node.prev = this.tail;
+            this.tail.next = node;
             this.head = node;
             this.length++;
             return node;
@@ -85,25 +92,40 @@ export default class CircularDoublyLinkedList {
         let count = 0;
         let currentNode = this.head;
         let deletedNode = null;
-        let previousNode = null;
 
+        // We only have the head / tail node so we just nullify everything.
+        if (this.length === 1) {
+            deletedNode = this.head;
+            this.head = null;
+            this.tail = null;
+            this.length--;
+            return deletedNode;
+        }
         // If we remove the head, set the new head to the next node in the chain.
-        if (index === 0) {
-            this.head = currentNode.next;
-            deletedNode = currentNode;
+        if (index === 0 && this.length > 1) {
+            deletedNode = this.head;
+            this.head = this.head.next;
+            this.head.next.prev = this.tail;
+            this.tail.next = this.head.next;
+            this.length--;
+            return deletedNode;
+        } else if(index === this.length - 1 && this.length > 1) {
+            // If we remove the tail, set the new tail to the previous node and it's next to the head.
+            this.tail = this.tail.prev;
+            this.head.prev = this.tail.prev;
+            this.tail.prev.next = this.head;
             this.length--;
             return deletedNode;
         } else {
             // Iterate through each node, keeping track of the previous node.
             while (currentNode.next && count < index) {
-                previousNode = currentNode;
                 currentNode = currentNode.next;
                 count++;
             }
 
             // The previous node is now linked with the node after the next, as we removed the center.
             currentNode.next.prev = currentNode.prev;
-            previousNode.next = currentNode.next;
+            currentNode.prev.next = currentNode.next;
             // Return the node we will remove, acts like a pop method.
             deletedNode = currentNode;
             currentNode = null;

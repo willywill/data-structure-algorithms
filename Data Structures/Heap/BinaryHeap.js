@@ -46,13 +46,13 @@ export default class BinaryHeap {
 
         let currentIdx = i;
 
-        // If the left node is less than the current index, set the temp current to this left node and prepare to swap them.
-        if (leftNodeIdx < heap.list.length && heap.compareTo(heap.list[leftNodeIdx], heap.list[i]) < 0) {
+        // If the left node is less than the current index, set the current to this left node and prepare to swap them.
+        if (leftNodeIdx < heap.size() && heap.compareTo(heap.list[leftNodeIdx], heap.list[i]) < 0) {
             currentIdx = leftNodeIdx;
         }
 
         // If the right node is less than the current index, set the current index to the right node and prepare to swap them.
-        if (rightNodeIdx < heap.list.length && heap.compareTo(heap.list[rightNodeIdx], heap.list[currentIdx]) < 0) {
+        if (rightNodeIdx < heap.size() && heap.compareTo(heap.list[rightNodeIdx], heap.list[currentIdx]) < 0) {
             currentIdx = rightNodeIdx;
         } 
 
@@ -67,8 +67,8 @@ export default class BinaryHeap {
 
     }
 
-    insert () {
-
+    insert (data) {
+        
     }
 
     remove () {
@@ -87,14 +87,31 @@ export default class BinaryHeap {
 
     }
 
+    /**
+     * Clears out the heap.
+     * 
+     * @memberof BinaryHeap
+     */
     clear () {
         this.list = [];
     }
 
+    /**
+     * Checks if the heap is empty or not.
+     * 
+     * @returns 
+     * @memberof BinaryHeap
+     */
     isEmpty () {
         return !this.list.length;
     }
 
+    /**
+     * Gets the size of the heap.
+     * 
+     * @returns 
+     * @memberof BinaryHeap
+     */
     size () {
         return this.list.length;
     }
