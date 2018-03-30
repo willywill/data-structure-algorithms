@@ -67,14 +67,21 @@ export default class BinaryHeap {
     }
 
     /**
-     * 
+     * Takes in keys and values and converts it to a heap structure.
      * 
      * @param {any} keys 
      * @param {any} values 
      * @memberof BinaryHeap
      */
     buildHeap (keys, values) {
+        const heapArray = [];
 
+        for (const i in keys) {
+            const node = new Node(keys[i], values[i]);
+            heapArray.push(node);
+        }
+
+        this._buildHeap(this, heapArray);
     }
 
     /**
@@ -119,12 +126,22 @@ export default class BinaryHeap {
     }
 
 
+    /**
+     * 
+     * 
+     * @memberof BinaryHeap
+     */
     decreaseKey () {
-
+        throw new Error("NotImplementedExeception");
     }
 
+    /**
+     * 
+     * 
+     * @memberof BinaryHeap
+     */
     increaseKey () {
-
+        throw new Error("NotImplementedExeception");
     }
 
     /**
