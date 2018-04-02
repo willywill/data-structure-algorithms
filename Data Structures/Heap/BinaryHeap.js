@@ -7,7 +7,7 @@ const minHeapCompare = (a, b) => a.key > b.key ? 1 : a.key < b.key ? -1 : 0;
 
 const getLeftNode = (i) => 2 * i + 1;
 const getRightNode = (i) => 2 * i + 2;
-const getParent = (i) => i === 0 ? Math.floor((i - 1) / 2) : null;
+const getParent = (i) => i !== 0 ? Math.floor((i - 1) / 2) : null;
 
 const swap = (list, a, b) => {
     const temp = list[a];
@@ -27,11 +27,12 @@ export default class BinaryHeap {
 
     /**
      * Creates an instance of BinaryHeap. Uses min-heap by default.
-     * @param {boolean} useMaxHeap 
+     * @param {boolean} useMaxHeap True or False
      * @memberof BinaryHeap
      */
     constructor (useMaxHeap) {
         this.list = [];
+        this.useMaxHeap = useMaxHeap;
         this.compareTo = useMaxHeap ? maxHeapCompare : minHeapCompare;
     }
 
@@ -108,18 +109,18 @@ export default class BinaryHeap {
      */
     insert (key, value) {
         // Get the next index in the array so we can add our node there then heapify.
-        let leafNodeIdx = this.list.length;
+        let currentNode = this.list.length;
         const node = new Node(key, value);
         this.list.push(node);
 
         // Get the parent of this new node.
-        let parent = getParent(leafNodeIdx);
+        let parent = getParent(currentNode);
 
         // Keep switching the inserted node with the parent as long as we have a happy path available.
-        while (parent !== null && this.compareTo(this.list[leafNodeIdx], this.list[parent]) < 0) {
-            swap(this.list, leafNodeIdx, parent);
-            leafNodeIdx = parent;
-            parent = getParent(leafNodeIdx);
+        while (parent !== null && this.compareTo(this.list[currentNode], this.list[parent]) < 0) {
+            swap(this.list, currentNode, parent);
+            currentNode = parent;
+            parent = getParent(currentNode);
         }
 
         return node;
@@ -174,7 +175,7 @@ export default class BinaryHeap {
      * @memberof BinaryHeap
      */
     extractMin () {
-        if(useMaxHeap) {
+        if(this.useMaxHeap) {
             return null;
         } else {
             return this._extractExtrema();
@@ -188,7 +189,7 @@ export default class BinaryHeap {
      * @memberof BinaryHeap
      */
     extractMax () {
-        if (useMaxHeap) {
+        if (this.useMaxHeap) {
             return this._extractExtrema();
         } else {
             return null;
@@ -202,7 +203,7 @@ export default class BinaryHeap {
      * @memberof BinaryHeap
      */
     getMin () {
-        if(useMaxHeap) {
+        if(this.useMaxHeap) {
             return null;
         } else {
             return this.isEmpty() ? null : this.list[0];
@@ -216,7 +217,7 @@ export default class BinaryHeap {
      * @memberof BinaryHeap
      */
     getMax () {
-        if (useMaxHeap) {
+        if (this.useMaxHeap) {
             return this.isEmpty() ? null : this.list[0];
         } else {
             return null;
