@@ -5,10 +5,8 @@
 Practicing data structures and algorithms.
 
 TODO Data Structures:
-  - Min/Max Heap
-  - Priority Queue
-  - Binary Tree
-  - Binary Search Tree
-  - Trie
-  - Matrix
-  - Graph Theory
+  - Binary Tree Properties
+  - Binary Search Tree (Node Removal & Flatten)
+  - Trie (Skip for now)
+  - Matrix (Skip for now)
+  - Graph Theory (Skip for now)
