@@ -7,6 +7,8 @@ Practicing data structures and algorithms.
 TODO Data Structures:
   - Binary Tree Properties
   - Binary Search Tree (Node Removal & Flatten)
-  - Trie (Skip for now)
-  - Matrix (Skip for now)
+  - Matrix
+  - Bloom Filter
+  - Trie
+  - Skip List
   - Graph Theory (Skip for now)
