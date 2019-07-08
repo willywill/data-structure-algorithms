@@ -4,11 +4,14 @@
 
 Practicing data structures and algorithms.
 
-Upcoming Data Structures:
-  - Binary Tree Properties
-  - Binary Search Tree (Node Removal & Flatten)
-  - Matrix
-  - Bloom Filter
-  - Trie
-  - Skip List
-  - Graph Theory
+Upcoming Work:
+
+Binary Tree Properties
+Binary Search Tree (Node Removal & Flatten)
+Priority Queue
+Matrix
+Vector
+Bloom Filter
+Trie
+Skip List
+Graph Theory
