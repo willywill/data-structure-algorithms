@@ -1,3 +1,4 @@
+/* eslint-disable */
 /*
    Binary Tree
       ----
@@ -26,25 +27,25 @@
 
  Full Binary Tree - 0 or 2 children per node
       ----
-       j  
+       j
      /   \
-    f      k 
-  /   \     
- a     h 
+    f      k
+  /   \
+ a     h
 
  Complete Binary Tree - All but last level filled, if last level not leafs as far left as possible
       ----
-       j  
+       j
      /   \
-    f      k 
-  /        
- a      
+    f      k
+  /
+ a
 
  Perfect Binary Tree - All nodes have 2 children and all leaves are the same level
       ----
-       j  
+       j
      /   \
-    f      k 
+    f      k
   /  \    /  \
  a    c  d     v
 
@@ -56,45 +57,44 @@ between the left and right subtrees do not differ more than 1 level.
 */
 
 class Node extends BinaryTree {
-    constructor (data) {
-        this.data = data;
-        this.left = null;
-        this.right = null;
-    }
+  constructor(data) {
+    this.data = data;
+    this.left = null;
+    this.right = null;
+  }
 }
 
 export default class BinaryTree {
-    constructor () {
-        this.binaryTree = [];
-        this.levels = 0;
-    }
+  constructor() {
+    this.binaryTree = [];
+    this.levels = 0;
+  }
 
-    insert (data) {
-        
-    }
+  insert(data) {
 
-    remove () {
+  }
 
-    }
+  remove() {
 
-    contains (data) {
+  }
 
-    }
+  contains(data) {
 
-    getMin () {
+  }
 
-    }
+  getMin() {
 
-    getMax () {
+  }
 
-    }
+  getMax() {
 
-    toArray () {
+  }
 
-    }
+  toArray() {
 
-    convertToLinkedList () {
-        
-    }
+  }
 
+  convertToLinkedList() {
+
+  }
 }

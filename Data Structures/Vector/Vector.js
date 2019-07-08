@@ -1,5 +1,6 @@
+/* eslint-disable */
 class Vector {
-  constructor () {
+  constructor() {
 
   }
 }

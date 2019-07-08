@@ -1,63 +1,61 @@
 export default class Stack {
-    constructor () {
-        this.collection = []
-    }
+  constructor() {
+    this.collection = [];
+  }
 
-    /**
+  /**
      * Pushes data onto the stack.
-     * 
-     * @param {any} data 
+     *
+     * @param {any} data
      * @memberof Stack
      */
-    push (data) {
-        this.collection.push(data);
-    }
+  push(data) {
+    this.collection.push(data);
+  }
 
-    /**
+  /**
      * Pops data off the stack and returns it.
-     * 
-     * @returns 
+     *
+     * @returns
      * @memberof Stack
      */
-    pop () {
-        if (this.isEmpty()) {
-            return null;
-        } else {
-            return this.collection.pop();
-        }
+  pop() {
+    if (this.isEmpty()) {
+      return null;
     }
+    return this.collection.pop();
+  }
 
-    /**
+  /**
      * Get data on top of the stack.
-     * 
-     * @returns 
+     *
+     * @returns
      * @memberof Stack
      */
-    peek () {
-        if (this.isEmpty()) {
-            return null;
-        } else {
-            return this.collection[this.collection.length - 1];
-        }
+  peek() {
+    if (this.isEmpty()) {
+      return null;
     }
+    return this.collection[this.collection.length - 1];
+  }
 
-    /**
+  /**
      * Gets the size of the stack.
-     * 
-     * @returns 
+     *
+     * @returns
      * @memberof Stack
      */
-    size () {
-        return this.collection.length;
-    }
+  size() {
+    return this.collection.length;
+  }
 
-    /**
+  /**
      * Checks if the stack is empty.
-     * 
-     * @returns 
+     *
+     * @returns
      * @memberof Stack
      */
-    isEmpty () {
-        return this.collection.length === 0 ? true : false;
-    }
+  isEmpty() {
+    return this.collection.length === 0;
+  }
 }

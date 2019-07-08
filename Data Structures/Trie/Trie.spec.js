@@ -1,7 +1,7 @@
+/* global describe it */
+
 describe('', () => {
+  it('', () => {
 
-    it ('', () => {
-
-    });
-
+  });
 });

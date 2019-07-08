@@ -1,31 +1,34 @@
 {
   "name": "data-structure-algorithms",
   "version": "1.0.0",
-  "description": "",
+  "description": "A list of common data structures and algorithms",
   "main": "index.js",
   "scripts": {
     "test": "jest --runInBand --verbose",
-    "start": "nodemon sandbox.js --exec babel-node"
+    "start": "nodemon sandbox.js --exec babel-node",
+    "lint": "./node_modules/.bin/eslint \"**/*.js\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/willywill/data-structure-algorithms.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Will Germany",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/willywill/data-structure-algorithms/issues"
   },
   "homepage": "https://github.com/willywill/data-structure-algorithms#readme",
-  "dependencies": {
-    "jest": "^22.4.2"
-  },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.3.3",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
     "coveralls": "^3.0.0",
+    "eslint": "^5.14.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "jest": "^24.8.0",
     "nodemon": "^1.17.1"
   }
 }

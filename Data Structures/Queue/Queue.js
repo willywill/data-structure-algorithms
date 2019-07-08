@@ -1,63 +1,61 @@
 export default class Queue {
-    constructor () {
-        this.collection = []
-    }
+  constructor() {
+    this.collection = [];
+  }
 
-    /**
+  /**
      * Pushes data onto the queue.
-     * 
-     * @param {any} data 
+     *
+     * @param {any} data
      * @memberof Queue
      */
-    enqueue (data) {
-        this.collection.push(data);
-    }
+  enqueue(data) {
+    this.collection.push(data);
+  }
 
-    /**
+  /**
      * Removes data out of the queue and returns it.
-     * 
-     * @returns 
+     *
+     * @returns
      * @memberof Queue
      */
-    dequeue () {
-        if (this.isEmpty()) {
-            return null;
-        } else {
-            return this.collection.shift();
-        }
+  dequeue() {
+    if (this.isEmpty()) {
+      return null;
     }
+    return this.collection.shift();
+  }
 
-    /**
+  /**
      * Gets the data in the front of the queue.
-     * 
-     * @returns 
+     *
+     * @returns
      * @memberof Queue
      */
-    front () {
-        if (this.isEmpty()) {
-            return null;
-        } else {
-            return this.collection[0];
-        }
+  front() {
+    if (this.isEmpty()) {
+      return null;
     }
+    return this.collection[0];
+  }
 
-    /**
+  /**
      * Gets the size of the queue.
-     * 
-     * @returns 
+     *
+     * @returns
      * @memberof Queue
      */
-    size () {
-        return this.collection.length;
-    }
+  size() {
+    return this.collection.length;
+  }
 
-    /**
+  /**
      * Checks if the queue is empty.
-     * 
-     * @returns 
+     *
+     * @returns
      * @memberof Queue
      */
-    isEmpty () {
-        return this.collection.length === 0 ? true : false;
-    }
+  isEmpty() {
+    return this.collection.length === 0;
+  }
 }

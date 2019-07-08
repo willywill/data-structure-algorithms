@@ -1,8 +1,9 @@
+/* eslint-disable */
 const identity = x => x;
 
 const computeFNVHash = (str, hash = 2166136261, hashMix = identity) => {
   str.forEach((char, idx) => {
-    hash ^= string.charCodeAt(idx);
+    hash ^= str.charCodeAt(idx);
     hash += (hash << 1) + (hash << 4) + (hash << 7) + (hash << 8) + (hash << 24);
   });
 
@@ -23,7 +24,7 @@ const computeFNVHashMix = hash => {
  * Based on the desired error rate - the bloom filter will scale in size
  */
 class BloomFilter {
-  constructor (desiredErrorRate, capacity = 30000) {
+  constructor(desiredErrorRate, capacity = 30000) {
     this.desiredErrorRate = desiredErrorRate;
     this.size = calculateSize(this.desiredErrorRate, capacity);
     this.buckets = generateBuckets(this.size);
@@ -33,7 +34,7 @@ class BloomFilter {
    * Add a key to the table
    * @memberof BloomFilter
    */
-  add () {
+  add() {
 
   }
 
@@ -43,7 +44,7 @@ class BloomFilter {
    * we can only see that we have a collision.
    * @memberof BloomFilter
    */
-  test () {
+  test() {
 
   }
 
@@ -51,7 +52,7 @@ class BloomFilter {
    * Get the size of the filter in bytes
    * @memberof BloomFilter
    */
-  size () {
+  size() {
 
   }
 }

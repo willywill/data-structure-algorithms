@@ -1,38 +1,38 @@
 class Matrix {
-  constructor (rows, columns) {
+  constructor(rows, columns) {
     this.rows = rows;
     this.columns = columns;
   }
 
-  add () {
+  add() {
 
   }
 
-  subtract () {
+  subtract() {
 
   }
 
-  multiply () {
+  multiply() {
 
   }
 
-  transpose () {
+  transpose() {
 
   }
 
-  determinant () {
+  determinant() {
 
   }
 
-  inverse () {
+  inverse() {
 
   }
 
-  random () {
-    
+  random() {
+
   }
 
-  map () {
+  map() {
 
   }
 }
