@@ -4,11 +4,11 @@
 
 Practicing data structures and algorithms.
 
-TODO Data Structures:
+Upcoming Data Structures:
   - Binary Tree Properties
   - Binary Search Tree (Node Removal & Flatten)
   - Matrix
   - Bloom Filter
   - Trie
   - Skip List
-  - Graph Theory (Skip for now)
+  - Graph Theory
