@@ -1,6 +1,6 @@
 # data-structure-algorithms
 
-[![Build Status](https://travis-ci.org/willywill/data-structure-algorithms.svg?branch=master)](https://travis-ci.org/willywill/data-structure-algorithms)
+![GitHub Workflow Status](https://github.com/willywill/data-structure-algorithms/actions/workflows/test.yml/badge.svg)
 
 Practicing data structures and algorithms.
 
