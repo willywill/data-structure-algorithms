@@ -1,6 +1,8 @@
 class Node {
   data: any;
+
   next: any;
+
   constructor(data) {
     this.data = data;
     this.next = null;
@@ -9,7 +11,9 @@ class Node {
 
 export default class LinkedList {
   head: any;
+
   length: number;
+
   constructor() {
     this.head = null;
     this.length = 0;

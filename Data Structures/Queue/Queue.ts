@@ -1,5 +1,6 @@
 export default class Queue {
   collection: any[];
+
   constructor() {
     this.collection = [];
   }

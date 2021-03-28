@@ -1,5 +1,6 @@
 export default class Stack {
   collection: any[];
+
   constructor() {
     this.collection = [];
   }

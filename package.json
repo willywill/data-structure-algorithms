@@ -4,7 +4,7 @@
   "description": "A list of common data structures and algorithms",
   "main": "index.js",
   "scripts": {
-    "test": "jest --runInBand --verbose",
+    "test": "jest --testPathPattern=\"test.js\" --runInBand --verbose",
     "start": "nodemon sandbox.js --exec babel-node",
     "build": "tsc -p tsconfig.json",
     "lint": "./node_modules/.bin/eslint \"**/*.ts\""
@@ -27,6 +27,8 @@
     "@babel/preset-env": "^7.3.1",
     "@types/jest": "^26.0.22",
     "@types/node": "^14.14.37",
+    "@typescript-eslint/eslint-plugin": "^4.19.0",
+    "@typescript-eslint/parser": "^4.19.0",
     "eslint": "^5.14.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",

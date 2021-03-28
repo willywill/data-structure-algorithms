@@ -3,7 +3,9 @@ import LinkedList from '../Linked List/LinkedList';
 
 class Bucket {
   key: any;
+
   value: any;
+
   constructor(key, value) {
     this.key = key;
     this.value = value;
@@ -12,10 +14,16 @@ class Bucket {
 
 export default class HashTable {
   storage: any[];
+
   tableSize: number;
+
   size: number;
+
   resize: () => void;
+
+  /* eslint-disable-next-line */
   hash: (key: any) => number;
+
   constructor() {
     this.storage = [];
     this.tableSize = 4;

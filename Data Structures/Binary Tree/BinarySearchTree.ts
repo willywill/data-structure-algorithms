@@ -2,8 +2,11 @@ const binaryTree = [];
 
 export default class BinaryTree {
   data: any;
+
   left: any;
+
   right: any;
+
   /**
      * Creates an instance of BinaryTree. TODO: Use key-value pairs.
      * @param {any} data

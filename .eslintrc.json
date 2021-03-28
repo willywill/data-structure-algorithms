@@ -1,4 +1,6 @@
 {
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
   "env": {
       "node": true,
       "es6": true
@@ -7,13 +9,19 @@
       "airbnb-base"
     ],
   "parserOptions": {
-      "ecmaVersion": 2019,
+      "ecmaVersion": 2021,
       "sourceType": "module"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".ts"]
+      }
+    }
   },
   "rules": {
       "class-methods-use-this": "off",
       "arrow-parens": "off",
-      "indent": ["error", 2],
       "implicit-arrow-linebreak":"off",
       "linebreak-style": "off",
       "no-bitwise": "off",
