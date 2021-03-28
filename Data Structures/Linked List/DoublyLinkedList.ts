@@ -1,11 +1,22 @@
 class Node {
+  data: any;
+
+  next: any;
+
+  prev: any;
+
   constructor(data) {
     this.data = data;
     this.next = null;
+    this.prev = null;
   }
 }
 
-export default class LinkedList {
+export default class DoublyLinkedList {
+  head: any;
+
+  length: number;
+
   constructor() {
     this.head = null;
     this.length = 0;
@@ -16,7 +27,7 @@ export default class LinkedList {
      *
      * @param {any} data
      * @returns
-     * @memberof LinkedList
+     * @memberof DoublyLinkedList
      */
   appendNode(data) {
     // Create a new node and fill it with our data.
@@ -35,8 +46,9 @@ export default class LinkedList {
     }
     // Once we reach the end, add this node to our last node.
     currentNode.next = node;
+    node.prev = currentNode;
     this.length++;
-    return currentNode;
+    return node;
   }
 
   /**
@@ -44,7 +56,7 @@ export default class LinkedList {
      *
      * @param {any} data
      * @returns
-     * @memberof LinkedList
+     * @memberof DoublyLinkedList
      */
   prependNode(data) {
     // Create a new node and fill it with data.
@@ -57,6 +69,7 @@ export default class LinkedList {
       return node;
     }
     // Otherwise, set the pointers for this new node and make it the new head.
+    this.head.prev = node;
     node.next = this.head;
     this.head = node;
     this.length++;
@@ -67,7 +80,7 @@ export default class LinkedList {
      * Removes the node at the provided index.
      *
      * @param {any} index
-     * @memberof LinkedList
+     * @memberof DoublyLinkedList
      */
   removeNode(index) {
     // Check for edge cases.
@@ -78,8 +91,6 @@ export default class LinkedList {
     let count = 0;
     let currentNode = this.head;
     let deletedNode = null;
-
-    // Keep track of the tail so we can adjust it's pointer if the removal is done in the center of two nodes.
     let previousNode = null;
 
     // If we remove the head, set the new head to the next node in the chain.
@@ -97,6 +108,7 @@ export default class LinkedList {
     }
 
     // The previous node is now linked with the node after the next, as we removed the center.
+    currentNode.next.prev = currentNode.prev;
     previousNode.next = currentNode.next;
     // Return the node we will remove, acts like a pop method.
     deletedNode = currentNode;
@@ -110,7 +122,7 @@ export default class LinkedList {
      *
      * @param {any} index
      * @returns
-     * @memberof LinkedList
+     * @memberof DoublyLinkedList
      */
   getNode(index) {
     // Check for edge cases.
@@ -135,9 +147,9 @@ export default class LinkedList {
      *
      * @param {any} value
      * @returns
-     * @memberof LinkedList
+     * @memberof DoublyLinkedList
      */
-  contains(key) {
+  contains(value) {
     if (this.isEmpty()) {
       return -1;
     }
@@ -145,18 +157,13 @@ export default class LinkedList {
     let count = 0;
     let isFound = false;
 
-    // Check if the head is null, otherwise don't continue, exit with -1.
-    if (this.head === null) {
-      return -1;
-    }
-
-    // Check if the head contains the key we want first.
-    if (this.head.data === key) {
+    // Check if the head contains the value we want first.
+    if (this.head.data === value) {
       return count;
     }
-    // Otherwise, iterate through each node and check if our key exists.
+    // Otherwise, iterate through each node and check if our value exists.
     while (currentNode.next || count <= this.length) {
-      if (currentNode.data === key || currentNode.data.key === key) {
+      if (currentNode.data === value) {
         isFound = true;
         break;
       } else {
@@ -174,7 +181,7 @@ export default class LinkedList {
      * Returns the size of the linked list.
      *
      * @returns
-     * @memberof LinkedList
+     * @memberof DoublyLinkedList
      */
   size() {
     // Get the length of the linked list and return it.
@@ -185,7 +192,7 @@ export default class LinkedList {
      * Checks if the linked list is empty or not.
      *
      * @returns
-     * @memberof LinkedList
+     * @memberof DoublyLinkedList
      */
   isEmpty() {
     // If the length of the linked list is zero, it's empty. Otherwise, it's not.

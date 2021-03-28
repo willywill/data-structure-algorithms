@@ -1,4 +1,10 @@
 class Node {
+  data: any;
+
+  next: any;
+
+  prev: any;
+
   constructor(data) {
     this.data = data;
     this.next = null;
@@ -7,6 +13,12 @@ class Node {
 }
 
 export default class CircularDoublyLinkedList {
+  head: any;
+
+  tail: any;
+
+  length: number;
+
   constructor() {
     this.head = null;
     this.tail = null;
