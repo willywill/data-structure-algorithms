@@ -1,59 +1,60 @@
-export default class Queue {
+export default class Stack {
+  collection: any[];
   constructor() {
     this.collection = [];
   }
 
   /**
-     * Pushes data onto the queue.
+     * Pushes data onto the stack.
      *
      * @param {any} data
-     * @memberof Queue
+     * @memberof Stack
      */
-  enqueue(data) {
+  push(data) {
     this.collection.push(data);
   }
 
   /**
-     * Removes data out of the queue and returns it.
+     * Pops data off the stack and returns it.
      *
      * @returns
-     * @memberof Queue
+     * @memberof Stack
      */
-  dequeue() {
+  pop() {
     if (this.isEmpty()) {
       return null;
     }
-    return this.collection.shift();
+    return this.collection.pop();
   }
 
   /**
-     * Gets the data in the front of the queue.
+     * Get data on top of the stack.
      *
      * @returns
-     * @memberof Queue
+     * @memberof Stack
      */
-  front() {
+  peek() {
     if (this.isEmpty()) {
       return null;
     }
-    return this.collection[0];
+    return this.collection[this.collection.length - 1];
   }
 
   /**
-     * Gets the size of the queue.
+     * Gets the size of the stack.
      *
      * @returns
-     * @memberof Queue
+     * @memberof Stack
      */
   size() {
     return this.collection.length;
   }
 
   /**
-     * Checks if the queue is empty.
+     * Checks if the stack is empty.
      *
      * @returns
-     * @memberof Queue
+     * @memberof Stack
      */
   isEmpty() {
     return this.collection.length === 0;

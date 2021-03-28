@@ -20,13 +20,20 @@ const computeFNVHashMix = hash => {
   return hash;
 };
 
+const calculateSize = (desiredErrorRate, capacity) => {};
+
+const generateBuckets = (size) => {};
+
 /**
  * Based on the desired error rate - the bloom filter will scale in size
  */
 class BloomFilter {
+  desiredErrorRate: any;
+  buckets: any;
+  _size: any;
   constructor(desiredErrorRate, capacity = 30000) {
     this.desiredErrorRate = desiredErrorRate;
-    this.size = calculateSize(this.desiredErrorRate, capacity);
+    this._size = calculateSize(this.desiredErrorRate, capacity);
     this.buckets = generateBuckets(this.size);
   }
 

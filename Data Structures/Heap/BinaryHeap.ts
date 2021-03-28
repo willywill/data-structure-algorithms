@@ -18,6 +18,8 @@ const swap = (list, a, b) => {
 
 
 class Node {
+  key: any;
+  value: any;
   constructor(key, value) {
     this.key = key;
     this.value = value;
@@ -25,12 +27,15 @@ class Node {
 }
 
 export default class BinaryHeap {
+  list: any;
+  useMaxHeap?: any;
+  compareTo: (a: any, b: any) => 1 | -1 | 0;
   /**
      * Creates an instance of BinaryHeap. Uses min-heap by default.
      * @param {boolean} useMaxHeap True or False
      * @memberof BinaryHeap
      */
-  constructor(useMaxHeap) {
+  constructor(useMaxHeap = false) {
     this.list = [];
     this.useMaxHeap = useMaxHeap;
     this.compareTo = useMaxHeap ? maxHeapCompare : minHeapCompare;
@@ -126,14 +131,13 @@ export default class BinaryHeap {
     return node;
   }
 
-
   /**
      *
      *
      * @memberof BinaryHeap
      */
   decreaseKey() {
-    throw new Error('NotImplementedExeception');
+    throw new Error('NotImplementedException');
   }
 
   /**
@@ -142,7 +146,7 @@ export default class BinaryHeap {
      * @memberof BinaryHeap
      */
   increaseKey() {
-    throw new Error('NotImplementedExeception');
+    throw new Error('NotImplementedException');
   }
 
   /**

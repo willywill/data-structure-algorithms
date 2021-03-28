@@ -1,4 +1,7 @@
 class Node {
+  data: any;
+  next: any;
+  prev: any;
   constructor(data) {
     this.data = data;
     this.next = null;
@@ -7,6 +10,8 @@ class Node {
 }
 
 export default class DoublyLinkedList {
+  head: any;
+  length: number;
   constructor() {
     this.head = null;
     this.length = 0;

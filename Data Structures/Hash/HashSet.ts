@@ -1,4 +1,5 @@
 export default class HashSet {
+  storage: {};
   constructor() {
     this.storage = {};
   }

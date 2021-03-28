@@ -56,8 +56,13 @@ between the left and right subtrees do not differ more than 1 level.
 
 */
 
+/* @ts-ignore: 2449 - Used before declaration error */
 class Node extends BinaryTree {
+  data: any;
+  left: any;
+  right: any;
   constructor(data) {
+    super();
     this.data = data;
     this.left = null;
     this.right = null;
@@ -65,6 +70,8 @@ class Node extends BinaryTree {
 }
 
 export default class BinaryTree {
+  binaryTree: any[];
+  levels: number;
   constructor() {
     this.binaryTree = [];
     this.levels = 0;
