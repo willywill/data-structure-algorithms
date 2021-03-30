@@ -7,7 +7,7 @@ Practicing data structures and algorithms.
 Upcoming Work:
 
 - Binary Tree Properties
-- Binary Search Tree (Node Removal & Flatten)
+- Binary Search Tree (Node Removal, Inversion & Flatten)
 - Priority Queue
 - Matrix
 - Vector
