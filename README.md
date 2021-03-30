@@ -1,6 +1,6 @@
 # data-structure-algorithms
 
-![GitHub Workflow Status](https://github.com/willywill/data-structure-algorithms/actions/workflows/test.yml/badge.svg)
+![GitHub Workflow Status](https://github.com/willywill/data-structure-algorithms/actions/workflows/pipeline.yml/badge.svg)
 
 Practicing data structures and algorithms.
 
