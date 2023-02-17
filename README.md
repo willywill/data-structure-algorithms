@@ -14,4 +14,5 @@ Upcoming Work:
 - Bloom Filter
 - Trie
 - Skip List
+- Merkle Tree
 - Graph Theory
