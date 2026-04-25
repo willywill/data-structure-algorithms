@@ -5,23 +5,23 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
-    - name: Init
-      uses: actions/setup-node@v2
-      with:
-        node-version: 15
+    - name: Setup Bun
+      uses: oven-sh/setup-bun@v2
 
     - name: Install
-      run: rm -rf node_modules && yarn install --frozen-lockfile
+      run: rm -rf node_modules && bun install --frozen-lockfile
 
-    - name: Build
-      run: yarn build
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version-file: '.nvmrc'
 
     - name: Lint
-      run: yarn lint
+      run: npm run lint:ci
       
     - name: Test
-      run: yarn test
+      run: npm run test

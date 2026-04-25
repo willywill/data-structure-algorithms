@@ -1,8 +1,12 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "allowJs": true,
-    "target": "es6",
-    "moduleResolution": "node"
+    "noEmit": true,
+    "skipLibCheck": true,
+    "types": ["vitest/globals", "node"]
   },
+  "exclude": ["node_modules", "dist", "vitest.config.ts"]
 }
